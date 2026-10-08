@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "changes_requirement_state": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["PROJECT", "SESSION", "IGNORE"]
+    },
+    "needs_confirmation": {
+      "type": "boolean"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": ["CREATE", "UPDATE", "CORRECT", "REMOVE"]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "GOAL",
+              "CONSTRAINT",
+              "ACCEPTANCE_CRITERION",
+              "PREFERENCE",
+              "OUT_OF_SCOPE"
+            ]
+          },
+          "key": {
+            "type": "string"
+          },
+          "source_text": {
+            "type": "string"
+          },
+          "new_content": {
+            "anyOf": [
+              {"type": "string"},
+              {"type": "null"}
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "type",
+          "key",
+          "source_text",
+          "new_content"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["changes_requirement_state", "scope", "needs_confirmation", "events"],
+  "additionalProperties": false
+}

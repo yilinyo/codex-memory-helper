@@ -1,0 +1,17 @@
+{
+  "extractor": {
+    "mode": "codex",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "low",
+    "codex_timeout_seconds": 60,
+    "api_timeout_seconds": 20,
+    "api_url": "https://api.openai.com/v1/responses",
+    "api_key_file": "~/.codex/memory_api_key",
+    "extraction_failure_policy": "stop",
+    "scope_policy": {
+      "project_definition": "Only requirements explicitly intended to remain valid for this project and its future tasks.",
+      "temporary_definition": "Instructions limited to the current task, turn, experiment, or one-off action.",
+      "ambiguous_action": "confirm"
+    }
+  }
+}

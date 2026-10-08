@@ -1,0 +1,32 @@
+{
+  "description": "Persistent requirement memory for this workspace.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/on_user_prompt.py\"",
+            "timeout": 75,
+            "statusMessage": "Updating requirement memory",
+            "additionalContextLimit": 2500
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/on_session_start.py\"",
+            "timeout": 10,
+            "statusMessage": "Loading requirement memory",
+            "additionalContextLimit": 2500
+          }
+        ]
+      }
+    ]
+  }
+}

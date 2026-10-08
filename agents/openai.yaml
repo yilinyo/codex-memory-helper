@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Memory Helper"
+  short_description: "Initialize requirement-memory hooks in a new project"
+  default_prompt: "Use $codex-memory-helper to install and trust the requirement-memory hooks in this project."
